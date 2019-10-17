@@ -10,11 +10,12 @@ mixed getValue($dsq)
 
 ####Пример
 
-	function display_rows() {  
-		global $modx;  
-		$count = $modx->db->getValue( $modx->db->select( 'count(*)', 'people' ) );   		if( $count < 1 ) {  
-			return 'No records found';  
-		}else{  
-			return 'Найдено ' . $count . ' записей в базе.';  
-		}  
+	function display_rows() {
+		$modx = evolutionCMS();
+		$count = $modx->db->getValue( $modx->db->select( 'count(*)', 'people' ) );
+		if( $count < 1 ) {
+			return 'Записей не найдено.';
+		} else {
+			return 'Найдено ' . $count . ' записей в базе.';
+		}
 	}
