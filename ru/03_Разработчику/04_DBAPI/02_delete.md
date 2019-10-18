@@ -11,6 +11,6 @@ bool delete(string $from [, string $where [, string $fields]])
 ####Пример
 
 	//Удаление пользователя из базы по идентификатору  
-	global $modx, $table_prefix;  
+	$modx = evolutionCMS();
 	$id = $modx->db->escape($id);  
-	$modx->db->delete($table_prefix.".modx_web_users", "id = $id");
+	$modx->db->delete($modx->getFullTableName('modx_web_users'), 'id='.$id);
